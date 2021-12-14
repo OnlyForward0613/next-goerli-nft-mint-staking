@@ -6,6 +6,7 @@ import Web3 from "web3"
 import Web3Modal from "web3modal"
 import { ethers } from "ethers"
 import { SMARTCONTRACT_ERC20_ABI, SMARTCONTRACT_ERC20_ADDRESS, SMARTCONTRACT_ERC721_ABI, SMARTCONTRACT_ERC721_ADDRESS } from '../../config'
+import { ToastContainer } from 'react-toastify'
 
 let web3 = undefined
 let contract_erc721 = undefined
@@ -21,6 +22,7 @@ function MyApp({ Component, pageProps }) {
   const [minted, setMinted] = useState(0)
   const [totalSignerNFTs, setTotalSignerNFTs] = useState(0)
   const [totalSignerTroops, setTotalSignerTroops] = useState(0)
+  const [balance, setBalance] = useState(0)
 
   const connectWallet = async () => {
     const providerOptions = {
@@ -40,6 +42,7 @@ function MyApp({ Component, pageProps }) {
       } else {
         setConnected(true)
         setSigner(accounts[0])
+        checkContract()
       }
     });
 
@@ -49,6 +52,9 @@ function MyApp({ Component, pageProps }) {
   }
 
   const checkContract = async () => {
+
+    setInfoLoading(true)
+
     web3 = new Web3(provider)
     provider = new ethers.providers.Web3Provider(provider);
     signer = provider.getSigner();
@@ -65,11 +71,13 @@ function MyApp({ Component, pageProps }) {
     const accounts = await web3.eth.getAccounts()
     getNFTs(accounts[0])
     getTroops(accounts[0])
+    const currentBalace = await web3.eth.getBalance(accounts[0])
+    setBalance(ethers.utils.formatEther(currentBalace).toString().slice(0, 6))
+    setInfoLoading(false)
 
   }
 
   const setSigner = (address) => {
-    console.log(address, "aaaa")
     setSignerAddress(address)
   }
 
@@ -114,9 +122,22 @@ function MyApp({ Component, pageProps }) {
         minted={minted}
         totalSignerNFTs={totalSignerNFTs}
         totalSignerTroops={totalSignerTroops}
+        balance={balance}
       />
       <Component {...pageProps}
+        connectWallet={connectWallet}
+        connected={connected}
+        address={signerAdress}
+        infoLoading={infoLoading}
+        minted={minted}
+        totalSignerNFTs={totalSignerNFTs}
+        totalSignerTroops={totalSignerTroops}
+        getTotalMinted={getTotalMinted}
+        getNFTs={(add) => getNFTs(add)}
+        contract={contract_erc721}
+        balance={balance}
       />
+      <ToastContainer style={{ fontSize: 14, padding: '5px !important', lineHeight: '15px' }} />
     </div>
   )
 }

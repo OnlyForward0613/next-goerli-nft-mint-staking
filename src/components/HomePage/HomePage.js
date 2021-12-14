@@ -1,11 +1,11 @@
-// import MyContact from "../MyContact";
+import MyContact from "../MyContact";
 
 import { Container } from "@mui/material";
 
 export default function HomePage() {
     return (
         <Container>
-            {/* <MyContact /> */}
+            <MyContact />
         </Container>
     )
 }

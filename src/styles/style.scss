@@ -6,6 +6,13 @@ $light-gray: #777;
   margin: 0;
   padding: 0;
 }
+.contact--page {
+  p {
+    padding: 0 20px;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+}
 .my-contact {
   display: flex;
   align-items: center;
@@ -16,6 +23,12 @@ $light-gray: #777;
   border-radius: 5px;
   a {
     margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+      margin-left: 10px;
+    }
   }
 }
 .full-page {
@@ -48,6 +61,33 @@ $light-gray: #777;
     font-weight: 300;
     span {
       font-weight: 700;
+    }
+  }
+}
+.mint {
+  width: 100%;
+  h1 {
+    text-align: center;
+    width: 100%;
+    padding: 15px 0;
+    border-bottom: 1px solid #ccc;
+    background: #4c4c4c;
+    color: #fff;
+  }
+}
+
+.mint-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0;
+  flex-direction: column;
+  p {
+    font-size: 28px;
+    font-weight: 300;
+    padding: 15px 0;
+    span {
+      font-weight: 900;
     }
   }
 }

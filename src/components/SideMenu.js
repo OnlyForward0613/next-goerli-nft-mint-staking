@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { ConnectButton, MenuButton } from './styleHook';
 
 export default function SideMenu({
@@ -8,8 +9,13 @@ export default function SideMenu({
   totalSignerNFTs,
   totalSignerTroops,
   infoLoading,
+  balance,
   ...props
 }) {
+  const router = useRouter()
+  const handleItem = (link) => {
+    router.push(link)
+  }
   return (
     <div className="side-menu">
       <div className="side-logo">
@@ -24,7 +30,8 @@ export default function SideMenu({
             {infoLoading ? "Loading..." :
               <div className="detail-box">
                 <p>Your NFTs: <span>{totalSignerNFTs}</span></p>
-                <p>Your Troops: <span>{totalSignerTroops}</span></p>
+                <p>Your Troops: <span>{totalSignerTroops}&nbsp;</span><span style={{ fontSize: 12 }}>TROOP</span></p>
+                <p>Your Balance: <span>{balance}&nbsp;</span><span style={{ fontSize: 12 }}>ETH</span></p>
                 <p>Total minted: <span>{minted}&nbsp;/&nbsp;5050</span></p>
               </div>
             }
@@ -34,30 +41,35 @@ export default function SideMenu({
       <div className="side-content">
         <ul>
           <li>
-            <MenuButton fullWidth style={{ borderTop: '1px solid #ccc' }}>
-              Mint
+            <MenuButton fullWidth style={{ borderTop: '1px solid #ccc' }} onClick={() => handleItem("/")}>
+              Home
             </MenuButton>
           </li>
           <li>
-            <MenuButton fullWidth>
+            <MenuButton fullWidth onClick={() => handleItem("/mint")}>
+              Mint
+            </MenuButton>
+          </li>
+          {/* <li>
+            <MenuButton fullWidth onClick={() => handleItem("/farm")}>
               Farm
             </MenuButton>
           </li>
           <li>
-            <MenuButton fullWidth>
+            <MenuButton fullWidth onClick={() => handleItem("/train")}>
               Train
             </MenuButton>
           </li>
           <li>
-            <MenuButton fullWidth>
+            <MenuButton fullWidth onClick={() => handleItem("/unstake")}>
               unstake&nbsp;&amp;&nbsp;Claim
             </MenuButton>
           </li>
           <li>
-            <MenuButton fullWidth>
+            <MenuButton fullWidth onClick={() => handleItem("/pillage")}>
               Pillage
             </MenuButton>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>
