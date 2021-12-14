@@ -52,6 +52,7 @@ function MyApp({ Component, pageProps }) {
     //   setConnected(true)
     //   setSignerAddress(ethereum.selectedAddress)
     // }
+    console.log(SMARTCONTRACT_ABI, SMARTCONTRACT_ADDRESS, "sss")
   }, [])
 
   return (
