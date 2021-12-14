@@ -5,6 +5,8 @@ export default function SideMenu({
   connected,
   address,
   minted,
+  totalSignerNFTs,
+  totalSignerTroops,
   infoLoading,
   ...props
 }) {
@@ -17,10 +19,16 @@ export default function SideMenu({
         <ConnectButton variant="contained" fullWidth onClick={connectWallet} disabled={connected}>
           {!connected ? "Connect" : "0x" + address.slice(2, 5) + "..." + address.slice(38, 42)}
         </ConnectButton>
-        {infoLoading ? "Loading..." :
-          <div className="detail-box">
-            <p>Total minted: <span>{minted}</span></p>
-          </div>
+        {connected &&
+          <>
+            {infoLoading ? "Loading..." :
+              <div className="detail-box">
+                <p>Your NFTs: <span>{totalSignerNFTs}</span></p>
+                <p>Your Troops: <span>{totalSignerTroops}</span></p>
+                <p>Total minted: <span>{minted}&nbsp;/&nbsp;5050</span></p>
+              </div>
+            }
+          </>
         }
       </div>
       <div className="side-content">

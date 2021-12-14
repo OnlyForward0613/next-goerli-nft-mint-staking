@@ -41,3 +41,13 @@ $light-gray: #777;
 .side-content {
   margin-top: 15px;
 }
+.detail-box {
+  padding: 20px 0;
+  p {
+    padding: 5px 0;
+    font-weight: 300;
+    span {
+      font-weight: 700;
+    }
+  }
+}
