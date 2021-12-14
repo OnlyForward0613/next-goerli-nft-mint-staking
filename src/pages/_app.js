@@ -4,7 +4,7 @@ import '../styles/globals.css'
 import '../styles/style.scss'
 import Web3 from "web3"
 import Web3Modal from "web3modal"
-import { SMARTCONTRACT_ABI, SMARTCONTRACT_ADDRESS } from '../../config'
+import { SMARTCONTRACT_ERC721_ABI, SMARTCONTRACT_ERC721_ADDRESS } from '../../config'
 
 function MyApp({ Component, pageProps }) {
 
@@ -52,7 +52,7 @@ function MyApp({ Component, pageProps }) {
     //   setConnected(true)
     //   setSignerAddress(ethereum.selectedAddress)
     // }
-    console.log(SMARTCONTRACT_ABI, SMARTCONTRACT_ADDRESS, "sss")
+    console.log(SMARTCONTRACT_ERC721_ABI, SMARTCONTRACT_ERC721_ADDRESS, "sss")
   }, [])
 
   return (
