@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { ConnectButton, MenuButton } from './styleHook';
 
@@ -16,6 +17,9 @@ export default function SideMenu({
   const handleItem = (link) => {
     router.push(link)
   }
+  useEffect(() => {
+    !connected && router.push("/")
+  }, [connected])
   return (
     <div className="side-menu">
       <div className="side-logo">
@@ -46,7 +50,7 @@ export default function SideMenu({
             </MenuButton>
           </li>
           <li>
-            <MenuButton fullWidth onClick={() => handleItem("/mint")}>
+            <MenuButton fullWidth onClick={() => handleItem("/mint")} disabled={!connected}>
               Mint
             </MenuButton>
           </li>
