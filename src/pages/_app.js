@@ -4,6 +4,7 @@ import '../styles/globals.css'
 import '../styles/style.scss'
 import Web3 from "web3"
 import Web3Modal from "web3modal"
+import { SMARTCONTRACT_ABI, SMARTCONTRACT_ADDRESS } from '../../config'
 
 function MyApp({ Component, pageProps }) {
 
@@ -39,18 +40,18 @@ function MyApp({ Component, pageProps }) {
   }
 
   useEffect(() => {
-    ethereum.on('accountsChanged', function (accounts) {
-      if (accounts.length !== 0) {
-        setSigner(accounts[0])
-        setConnected(true)
-      } else {
-        setConnected(false)
-      }
-    });
-    if (ethereum.selectedAddress !== null) {
-      setConnected(true)
-      setSignerAddress(ethereum.selectedAddress)
-    }
+    // ethereum.on('accountsChanged', function (accounts) {
+    //   if (accounts.length !== 0) {
+    //     setSigner(accounts[0])
+    //     setConnected(true)
+    //   } else {
+    //     setConnected(false)
+    //   }
+    // });
+    // if (ethereum.selectedAddress !== null) {
+    //   setConnected(true)
+    //   setSignerAddress(ethereum.selectedAddress)
+    // }
   }, [])
 
   return (
