@@ -48,10 +48,10 @@ function MyApp({ Component, pageProps }) {
     //     setConnected(false)
     //   }
     // });
-    // if (ethereum.selectedAddress !== null) {
-    //   setConnected(true)
-    //   setSignerAddress(ethereum.selectedAddress)
-    // }
+    if (ethereum.selectedAddress !== null) {
+      setConnected(true)
+      setSignerAddress(ethereum.selectedAddress)
+    }
     console.log(SMARTCONTRACT_ERC721_ABI, SMARTCONTRACT_ERC721_ADDRESS, "sss")
   }, [])
 
