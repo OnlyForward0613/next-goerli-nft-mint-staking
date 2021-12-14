@@ -23,13 +23,15 @@ $light-gray: #777;
 }
 .side-menu {
   width: 240px;
-  box-shadow: 4px 0px 10px #ccc;
+  box-shadow: 2px 0px 9px #0000006b;
   min-height: 100vh;
+  background: #e8e8e8;
   .side-logo {
     h2 {
       color: $dark-gray;
       text-align: center;
-      padding: 10px 0;
+      padding: 15px 0;
+      font-weight: 900;
     }
   }
 }
