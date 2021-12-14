@@ -4,6 +4,8 @@ export default function SideMenu({
   connectWallet,
   connected,
   address,
+  minted,
+  infoLoading,
   ...props
 }) {
   return (
@@ -15,6 +17,11 @@ export default function SideMenu({
         <ConnectButton variant="contained" fullWidth onClick={connectWallet} disabled={connected}>
           {!connected ? "Connect" : "0x" + address.slice(2, 5) + "..." + address.slice(38, 42)}
         </ConnectButton>
+        {infoLoading ? "Loading..." :
+          <div className="detail-box">
+            <p>Total minted: <span>{minted}</span></p>
+          </div>
+        }
       </div>
       <div className="side-content">
         <ul>
