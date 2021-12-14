@@ -1,0 +1,43 @@
+{
+  "name": "next-tutorial",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.6.0",
+    "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.1.1",
+    "@mui/material": "^5.1.1",
+    "@mui/styles": "^5.1.1",
+    "@reduxjs/toolkit": "^1.6.2",
+    "babel-plugin-styled-components": "^1.13.3",
+    "eth-rpc-errors": "^4.0.3",
+    "ethers": "^5.5.1",
+    "fs": "^0.0.1-security",
+    "next": "12.0.4",
+    "next-images": "^1.8.2",
+    "react": "17.0.2",
+    "react-copy-button-wrapper": "^0.0.6",
+    "react-dom": "17.0.2",
+    "react-particles-webgl": "^1.0.10",
+    "react-perfect-slider": "^2.0.1",
+    "react-redux": "^7.2.6",
+    "react-spinners": "^0.11.0",
+    "react-toastify": "^8.1.0",
+    "react-web3-provider": "^1.1.2",
+    "sass": "^1.43.4",
+    "styled-components": "^5.3.3",
+    "use-persisted-state": "^0.3.3",
+    "web3": "^1.6.1",
+    "web3-eth-contract": "^1.6.1",
+    "web3modal": "^1.9.4"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-next": "12.0.4"
+  }
+}
