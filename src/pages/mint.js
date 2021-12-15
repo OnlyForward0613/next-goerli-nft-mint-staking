@@ -4,7 +4,7 @@ import { MintButton } from '../components/styleHook'
 import ClipLoader from 'react-spinners/ClipLoader'
 import { successAlert, errorAlert } from '../components/toastGroup'
 
-export default function Home({
+export default function Mint({
   address,
   connectWallet,
   minted,
@@ -37,8 +37,8 @@ export default function Home({
         <meta name="description" content="Game of Risk Dapp Created by Oura Kano" />
       </Head>
 
-      <div className="mint">
-        <h1>Mint page</h1>
+      <div className="page">
+        <h1>Please Mint</h1>
         <div className="mint-content">
           <p>Total Minted: <span>{minted}</span></p>
           <p>Your NFTs: <span>{totalSignerNFTs}</span></p>

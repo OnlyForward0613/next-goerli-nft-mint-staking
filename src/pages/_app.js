@@ -7,6 +7,7 @@ import Web3Modal from "web3modal"
 import { ethers } from "ethers"
 import { SMARTCONTRACT_ERC20_ABI, SMARTCONTRACT_ERC20_ADDRESS, SMARTCONTRACT_ERC721_ABI, SMARTCONTRACT_ERC721_ADDRESS } from '../../config'
 import { ToastContainer } from 'react-toastify'
+import Loading from '../components/Loading'
 
 let web3 = undefined
 let contract_erc721 = undefined
@@ -23,8 +24,10 @@ function MyApp({ Component, pageProps }) {
   const [totalSignerNFTs, setTotalSignerNFTs] = useState(0)
   const [totalSignerTroops, setTotalSignerTroops] = useState(0)
   const [balance, setBalance] = useState(0)
+  const [pageLoading, setPageLoading] = useState(false)
 
   const connectWallet = async () => {
+
     const providerOptions = {
       /* See Provider Options Section */
     }
@@ -113,32 +116,38 @@ function MyApp({ Component, pageProps }) {
   }, [])
 
   return (
-    <div className="full-page">
-      <SideMenu
-        connectWallet={connectWallet}
-        connected={connected}
-        address={signerAdress}
-        infoLoading={infoLoading}
-        minted={minted}
-        totalSignerNFTs={totalSignerNFTs}
-        totalSignerTroops={totalSignerTroops}
-        balance={balance}
-      />
-      <Component {...pageProps}
-        connectWallet={connectWallet}
-        connected={connected}
-        address={signerAdress}
-        infoLoading={infoLoading}
-        minted={minted}
-        totalSignerNFTs={totalSignerNFTs}
-        totalSignerTroops={totalSignerTroops}
-        getTotalMinted={getTotalMinted}
-        getNFTs={(add) => getNFTs(add)}
-        contract={contract_erc721}
-        balance={balance}
-      />
-      <ToastContainer style={{ fontSize: 14, padding: '5px !important', lineHeight: '15px' }} />
-    </div>
+    <>
+      <div className="full-page">
+        <SideMenu
+          connectWallet={connectWallet}
+          connected={connected}
+          address={signerAdress}
+          infoLoading={infoLoading}
+          minted={minted}
+          totalSignerNFTs={totalSignerNFTs}
+          totalSignerTroops={totalSignerTroops}
+          balance={balance}
+        />
+        <Component {...pageProps}
+          connectWallet={connectWallet}
+          connected={connected}
+          address={signerAdress}
+          infoLoading={infoLoading}
+          minted={minted}
+          totalSignerNFTs={totalSignerNFTs}
+          totalSignerTroops={totalSignerTroops}
+          getTotalMinted={getTotalMinted}
+          getNFTs={(add) => getNFTs(add)}
+          contract={contract_erc721}
+          balance={balance}
+          checkContract={checkContract}
+          onLoading={() => setPageLoading(true)}
+          offLoading={() => setPageLoading(false)}
+        />
+        <ToastContainer style={{ fontSize: 14, padding: '5px !important', lineHeight: '15px' }} />
+      </div>
+      <Loading loading={pageLoading} />
+    </>
   )
 }
 

@@ -64,8 +64,8 @@ $light-gray: #777;
     }
   }
 }
-.mint {
-  width: 100%;
+.page {
+  width: calc(100% - 240px);
   h1 {
     text-align: center;
     width: 100%;
@@ -90,4 +90,30 @@ $light-gray: #777;
       font-weight: 900;
     }
   }
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  z-index: 100000;
+  position: fixed;
+  background: #3e3e3ee3;
+  width: 100%;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.loading.active {
+  opacity: 1;
+  pointer-events: all;
+  transition: opacity 0.2s;
+}
+.my-nfts-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

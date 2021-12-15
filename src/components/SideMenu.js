@@ -54,26 +54,11 @@ export default function SideMenu({
               Mint
             </MenuButton>
           </li>
-          {/* <li>
-            <MenuButton fullWidth onClick={() => handleItem("/farm")}>
-              Farm
+          <li>
+            <MenuButton fullWidth onClick={() => handleItem("/my-nfts")} disabled={!connected}>
+              My NFTs
             </MenuButton>
           </li>
-          <li>
-            <MenuButton fullWidth onClick={() => handleItem("/train")}>
-              Train
-            </MenuButton>
-          </li>
-          <li>
-            <MenuButton fullWidth onClick={() => handleItem("/unstake")}>
-              unstake&nbsp;&amp;&nbsp;Claim
-            </MenuButton>
-          </li>
-          <li>
-            <MenuButton fullWidth onClick={() => handleItem("/pillage")}>
-              Pillage
-            </MenuButton>
-          </li> */}
         </ul>
       </div>
     </div>
