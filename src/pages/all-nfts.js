@@ -23,7 +23,7 @@ export default function MyNfts({
     // console.log(contract)
     onLoading()
     let totalNfts = []
-    for (let i = 0; i <= minted; i++) {
+    for (let i = 1; i <= minted; i++) {
       const activities = await contract.activities(i.toString())
       if (activities.owner.toString().toLowerCase() === address.toString().toLowerCase()) {
         const meta = await contract.tokenURI(i)
@@ -156,34 +156,42 @@ export function NFTCard({ item, contract, ...props }) {
           {item.description}
         </Typography>
         <ButtonGroup variant="contained" fullWidth>
-          <DoActionButton onClick={() => setUnstake()} disabled={isULoading} >
-            {isULoading ?
-              <ClipLoader loading={isULoading} color="#fff" size={15} />
-              :
-              "Unstake"
-            }
-          </DoActionButton>
-          <DoActionButton onClick={() => setFarm()} disabled={isFLoading} >
-            {isFLoading ?
-              <ClipLoader loading={isFLoading} color="#fff" size={15} />
-              :
-              "Farm"
-            }
-          </DoActionButton>
-          <DoActionButton onClick={() => setTrain()} disabled={isTLoading} >
-            {isTLoading ?
-              <ClipLoader loading={isTLoading} color="#fff" size={15} />
-              :
-              "Train"
-            }
-          </DoActionButton>
-          <DoActionButton onClick={() => setClaim()} disabled={isCLoading} >
-            {isCLoading ?
-              <ClipLoader loading={isCLoading} color="#fff" size={15} />
-              :
-              "Claim"
-            }
-          </DoActionButton>
+          {item.action !== 0 &&
+            <DoActionButton onClick={() => setUnstake()} disabled={isULoading} >
+              {isULoading ?
+                <ClipLoader loading={isULoading} color="#fff" size={15} />
+                :
+                "Unstake"
+              }
+            </DoActionButton>
+          }
+          {item.action !== 1 &&
+            <DoActionButton onClick={() => setFarm()} disabled={isFLoading} >
+              {isFLoading ?
+                <ClipLoader loading={isFLoading} color="#fff" size={15} />
+                :
+                "Farm"
+              }
+            </DoActionButton>
+          }
+          {item.action !== 2 &&
+            <DoActionButton onClick={() => setTrain()} disabled={isTLoading} >
+              {isTLoading ?
+                <ClipLoader loading={isTLoading} color="#fff" size={15} />
+                :
+                "Train"
+              }
+            </DoActionButton>
+          }
+          {item.action !== 0 &&
+            <DoActionButton onClick={() => setClaim()} disabled={isCLoading} >
+              {isCLoading ?
+                <ClipLoader loading={isCLoading} color="#fff" size={15} />
+                :
+                "Claim"
+              }
+            </DoActionButton>
+          }
         </ButtonGroup>
 
         <PilActionButton onClick={() => setModal(true)}>Pillage</PilActionButton>
@@ -210,10 +218,12 @@ export function PillageModal({ opened, close, contract, id, ...props }) {
       await contract.pillage(id.toString(), place, tree, mountain, special)
       successAlert("Contratulation! You done the unstake")
       setLoading(false)
+      close()
     } catch (err) {
       console.log(err)
       err.message ? errorAlert(err.message) : errorAlert("Oops! We find an error. Please try again")
       setLoading(false)
+      close()
     }
   }
   return (
