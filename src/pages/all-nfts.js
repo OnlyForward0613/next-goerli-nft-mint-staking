@@ -150,7 +150,7 @@ export function NFTCard({ item, contract, ...props }) {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {item.name}<span className="card-ribbon">{label}{item.action}</span>
+          {item.name}<span className="card-ribbon">{label}</span>
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {item.description}
