@@ -117,3 +117,11 @@ $light-gray: #777;
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.empty-items {
+  margin: 20px;
+  padding: 25px;
+  border: 1px solid #d60101;
+  background: #ffc6c6;
+  color: #000;
+}
