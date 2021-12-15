@@ -113,6 +113,7 @@ function MyApp({ Component, pageProps }) {
       setSignerAddress(ethereum.selectedAddress)
     }
     connectWallet()
+    // eslint-disable-next-line
   }, [])
 
   return (

@@ -51,6 +51,7 @@ export default function MyNfts({
     if (totalSignerNFTs !== "0") {
       contract !== undefined && getNFTList()
     }
+    // eslint-disable-next-line
   }, [])
 
   return (
@@ -62,7 +63,7 @@ export default function MyNfts({
       <div className="page">
         <h1>All NFTs</h1>
         {totalSignerNFTs === "0" &&
-          <p className="empty-items">You don't have any NFTs. Please Mint a new NFT or unstake</p>
+          <p className="empty-items">You don&apos;t have any NFTs. Please Mint a new NFT or unstake</p>
         }
         <div className="my-nfts-content">
           {
@@ -138,6 +139,7 @@ export function NFTCard({ item, contract, ...props }) {
     if (item.action === 0) setLabel("UNSTAKED")
     if (item.action === 1) setLabel("FARMING")
     if (item.action === 2) setLabel("TRAINING")
+    // eslint-disable-next-line
   }, [])
   return (
     <Card sx={{ maxWidth: 300, margin: "15px" }}>

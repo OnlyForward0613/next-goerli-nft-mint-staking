@@ -19,6 +19,7 @@ export default function SideMenu({
   }
   useEffect(() => {
     !connected && router.push("/")
+    // eslint-disable-next-line
   }, [connected])
   return (
     <div className="side-menu">
