@@ -55,8 +55,8 @@ export default function SideMenu({
             </MenuButton>
           </li>
           <li>
-            <MenuButton fullWidth onClick={() => handleItem("/my-nfts")} disabled={!connected}>
-              My NFTs
+            <MenuButton fullWidth onClick={() => handleItem("/all-nfts")} disabled={!connected}>
+              All NFTs
             </MenuButton>
           </li>
         </ul>

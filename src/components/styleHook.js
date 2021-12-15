@@ -31,7 +31,6 @@ export const MintButton = styled(Button)(({ theme }) => ({
   backgroundColor: green[600],
   width: 240,
   height: 60,
-  marginRight: 20,
   position: "relative",
   zIndex: 15,
   '&:hover': {
@@ -40,6 +39,47 @@ export const MintButton = styled(Button)(({ theme }) => ({
   '&:disabled': {
     color: "#fff",
     backgroundColor: green[600],
+  }
+}));
+
+export const DoActionButton = styled(Button)(({ theme }) => ({
+  color: "#fff",
+  borderRadius: 5,
+  fontSize: 12,
+  fontWeight: 900,
+  textTransform: "none",
+  backgroundColor: green[600],
+  height: 30,
+  position: "relative",
+  zIndex: 15,
+  borderColor: `${green[800]} !important`,
+  '&:hover': {
+    backgroundColor: green[800],
+  },
+  '&:disabled': {
+    color: "#fff",
+    backgroundColor: green[600],
+  }
+}));
+
+export const PilActionButton = styled(Button)(({ theme }) => ({
+  color: "#fff",
+  borderRadius: 5,
+  fontSize: 12,
+  fontWeight: 900,
+  textTransform: "none",
+  backgroundColor: pink[600],
+  height: 30,
+  position: "relative",
+  marginTop: 10,
+  zIndex: 15,
+  borderColor: `${pink[800]} !important`,
+  '&:hover': {
+    backgroundColor: pink[800],
+  },
+  '&:disabled': {
+    color: "#fff",
+    backgroundColor: pink[600],
   }
 }));
 

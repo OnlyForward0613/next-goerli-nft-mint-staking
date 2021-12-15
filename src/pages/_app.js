@@ -91,7 +91,7 @@ function MyApp({ Component, pageProps }) {
 
   const getTroops = async (address) => {
     const total = await contract_erc20.balanceOf(address)
-    setTotalSignerTroops(total.toString())
+    setTotalSignerTroops(ethers.utils.formatEther(total).toString().slice(0, 8))
   }
 
   const getNFTs = async (address) => {
