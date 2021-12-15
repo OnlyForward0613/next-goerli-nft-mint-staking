@@ -23,7 +23,7 @@ export default function MyNfts({
     // console.log(contract)
     onLoading()
     let totalNfts = []
-    for (let i = 22; i <= minted; i++) {
+    for (let i = 0; i <= minted; i++) {
       const activities = await contract.activities(i.toString())
       if (activities.owner.toString().toLowerCase() === address.toString().toLowerCase()) {
         const meta = await contract.tokenURI(i)
