@@ -52,21 +52,21 @@ export default function MyNfts({
 
   const setFarm = async (id) => {
     try {
-      await contract.doAction(id, 0)
+      await contract.doAction(id, 1)
     } catch (err) {
       console.log(err)
     }
   }
   const setTrain = async (id) => {
     try {
-      await contract.doAction(id, 1)
+      await contract.doAction(id, 2)
     } catch (err) {
       console.log(err)
     }
   }
   const setUnstake = async (id) => {
     try {
-      await contract.doAction(id, 2)
+      await contract.doAction(id, 0)
     } catch (err) {
       console.log(err)
     }
